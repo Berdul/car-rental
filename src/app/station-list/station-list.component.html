@@ -1,0 +1,18 @@
+<div class="container">
+  <h3>Stations</h3>
+
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let station of (stations | async)" >
+      <mat-expansion-panel-header>
+        <mat-panel-title class="accordion-header-title">
+          {{station.numvoie}} {{station.typevoie | lowercase}} {{station.nomvoie | lowercase}}, {{station.arrond | ordinal}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{station.placal}} available
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <app-car-list [cars]="station.cars"></app-car-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
