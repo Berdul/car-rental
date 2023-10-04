@@ -10,11 +10,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
 import { OrdinalPipe } from './pipe/ordinal';
+import { StationRowComponent } from './station-row/station-row.component';
+import { ErrorRetryComponent } from './error-retry/error-retry.component';
+import { HeaderBarComponent } from './header-bar/header-bar.component';
 
 @NgModule({
-  declarations: [AppComponent, StationListComponent, CarListComponent, OrdinalPipe],
+  declarations: [AppComponent, StationListComponent, CarListComponent, OrdinalPipe, StationRowComponent, ErrorRetryComponent, HeaderBarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,6 +26,7 @@ import { OrdinalPipe } from './pipe/ordinal';
     BrowserAnimationsModule,
     MatExpansionModule,
     MatTableModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,17 @@
+@import '../../styles.scss';
+
+.accordion-header {
+  padding: 0 20px;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 0 10px;
+  }
+
+  .mat-content {
+    flex-direction: column;
+  }
+
+  .accordion-header-title  {
+    flex-grow: 4;
+  }
+}

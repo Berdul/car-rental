@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Car } from '../model/car';
 import { MatTableDataSource } from '@angular/material/table';
-import { map } from 'rxjs';
+import { Subscription, catchError, first, of } from 'rxjs';
+import { Car } from '../model/car';
+import { Station } from '../model/station';
+import { CarService } from '../services/car.service';
 
 @Component({
   selector: 'app-car-list',
@@ -9,14 +11,28 @@ import { map } from 'rxjs';
   styleUrls: ['./car-list.component.scss'],
 })
 export class CarListComponent implements OnInit {
-  @Input() cars: Car[];
+  @Input() station: Station;
 
+  carsSubscription: Subscription;
   displayedColumns = ['model', 'hourlyPrice', 'rating', 'condition'];
   dataSource: MatTableDataSource<Car>;
+  isQuerying = this.carService.queryingCars;
+  hasError = false;
 
-  constructor() {}
+  constructor(private carService: CarService) {}
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.cars);
+    this.carService
+      .getAvailableCars(this.station)
+      .pipe(
+        first(),
+        catchError(() => {
+          this.hasError = true;
+          return of([]);
+        })
+      )
+      .subscribe((cars) => {
+        this.dataSource = new MatTableDataSource(cars);
+      });
   }
 }

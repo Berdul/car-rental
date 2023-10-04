@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { StationService } from '../services/station.service';
-import { Observable, first, map } from 'rxjs';
+import { catchError, first, map, of } from 'rxjs';
 import { Station } from '../model/station';
+import { StationService } from '../services/station.service';
 
 @Component({
   selector: 'app-station-list',
@@ -9,11 +9,29 @@ import { Station } from '../model/station';
   styleUrls: ['./station-list.component.scss'],
 })
 export class StationListComponent implements OnInit {
-  stations: Observable<Station[]>;
+  stations: Station[];
+  isQuerying = this.stationService.queryingStations;
+  hasError = false;
 
   constructor(private stationService: StationService) {}
 
   ngOnInit(): void {
-    this.stations = this.stationService.getStations().pipe(map(res => res.results));
+    this.fetchStations();
+  }
+
+  fetchStations() {
+    this.hasError = false;
+
+    this.stationService
+      .getStations()
+      .pipe(map((res) => res.results))
+      .pipe(
+        first(),
+        catchError(() => {
+          this.hasError = true;
+          return of([]);
+        })
+      )
+      .subscribe((stations) => (this.stations = stations));
   }
 }

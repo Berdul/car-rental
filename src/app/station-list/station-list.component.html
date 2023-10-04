@@ -1,18 +1,15 @@
 <div class="container">
   <h3>Stations</h3>
+  <div *ngIf="!(isQuerying | async); else loading">
+    <mat-accordion *ngIf="!hasError; else errorRetry">
+      <app-station-row *ngFor="let station of stations" [station]="station"></app-station-row>
+    </mat-accordion>
+    <ng-template #errorRetry>
+      <app-error-retry (retry)="fetchStations()"></app-error-retry>
+    </ng-template>
+  </div>
+  <ng-template #loading>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </ng-template>
 
-  <mat-accordion>
-    <mat-expansion-panel *ngFor="let station of (stations | async)" >
-      <mat-expansion-panel-header>
-        <mat-panel-title class="accordion-header-title">
-          {{station.numvoie}} {{station.typevoie | lowercase}} {{station.nomvoie | lowercase}}, {{station.arrond | ordinal}}
-        </mat-panel-title>
-        <mat-panel-description>
-          {{station.placal}} available
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-  
-      <app-car-list [cars]="station.cars"></app-car-list>
-    </mat-expansion-panel>
-  </mat-accordion>
 </div>

@@ -12,6 +12,6 @@
   @media (max-width: $breakpoint-mobile) {
     min-width: $mobile-min-width;
     max-width: $mobile-max-width;
-    padding: 0;
+    padding: 0 5px;
   }
 }

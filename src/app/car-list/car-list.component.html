@@ -1,25 +1,29 @@
-<mat-table #table [dataSource]="dataSource">
-
-  <ng-container matColumnDef="model">
-    <mat-header-cell *matHeaderCellDef> Model </mat-header-cell>
-    <mat-cell *matCellDef="let car"> {{car?.model}} </mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="hourlyPrice">
-    <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-    <mat-cell *matCellDef="let car"> {{car?.hourlyPrice | currency: '€'}}/h </mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="rating">
-    <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-    <mat-cell *matCellDef="let car"> {{car?.rating}} </mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="condition">
-    <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-    <mat-cell *matCellDef="let car"> {{car?.condition}} </mat-cell>
-  </ng-container>
-
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+<div *ngIf="!(isQuerying | async); else loading">
+  <mat-table #table [dataSource]="dataSource">
+    <ng-container matColumnDef="model">
+      <mat-header-cell *matHeaderCellDef> Model </mat-header-cell>
+      <mat-cell *matCellDef="let car">{{car?.model}}</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="hourlyPrice">
+      <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+      <mat-cell *matCellDef="let car">{{car?.hourlyPrice | currency: '€'}}/h</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="rating">
+      <mat-header-cell *matHeaderCellDef> Rate </mat-header-cell>
+      <mat-cell *matCellDef="let car">{{car?.rating}}</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="condition">
+      <mat-header-cell *matHeaderCellDef> Condition </mat-header-cell>
+      <mat-cell *matCellDef="let car">{{car?.condition}}</mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+<ng-template #loading>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>

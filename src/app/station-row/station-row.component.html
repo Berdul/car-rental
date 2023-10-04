@@ -1,0 +1,12 @@
+<mat-expansion-panel (opened)="panelOpen = true" (closed)="panelOpen = false">
+  <mat-expansion-panel-header class="accordion-header">
+    <mat-panel-title class="accordion-header-title">
+      {{station.numvoie}} {{station.typevoie | lowercase}} {{station.nomvoie | lowercase}}, {{station.arrond | ordinal}}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{station.placal}} available
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <app-car-list *ngIf="panelOpen" [station]="station"></app-car-list>
+</mat-expansion-panel>
