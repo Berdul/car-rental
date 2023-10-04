@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError, delay, finalize, of, tap } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  catchError,
+  delay,
+  finalize,
+  of,
+} from 'rxjs';
 import { generateCarArray } from '../helper/car-helper';
-import { Car } from '../model/car';
-import { Station } from '../model/station';
 import { errorHandler } from '../helper/error-helper';
+import { Station } from '../station/station.model';
+import { Car } from './car.model';
 
 @Injectable({
   providedIn: 'root',

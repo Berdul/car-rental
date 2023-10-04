@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Station } from '../model/station';
+import { Station } from '../station.model';
 
 @Component({
   selector: 'app-station-row',

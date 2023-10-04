@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription, catchError, first, of } from 'rxjs';
-import { Car } from '../model/car';
-import { Station } from '../model/station';
-import { CarService } from '../services/car.service';
+import { Station } from '../../station/station.model';
+import { Car } from '../car.model';
+import { CarService } from '../car.service';
 
 @Component({
   selector: 'app-car-list',

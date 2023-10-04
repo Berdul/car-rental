@@ -1,4 +1,4 @@
-import { Car } from './car';
+import { Car } from '../car/car.model';
 
 // Extracted from Opendata openapi contract
 export interface Station {

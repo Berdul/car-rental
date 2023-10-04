@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { catchError, first, map, of } from 'rxjs';
-import { Station } from '../model/station';
-import { StationService } from '../services/station.service';
+import { Station } from '../station.model';
+import { StationService } from '../station.service';
 
 @Component({
   selector: 'app-station-list',
