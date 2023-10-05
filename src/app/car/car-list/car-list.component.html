@@ -1,8 +1,8 @@
 <div *ngIf="!(isQuerying | async); else loading">
   <mat-table #table [dataSource]="dataSource">
     <ng-container matColumnDef="model">
-      <mat-header-cell *matHeaderCellDef> Model </mat-header-cell>
-      <mat-cell *matCellDef="let car">{{car?.model}}</mat-cell>
+      <mat-header-cell *matHeaderCellDef class="model-header-cell"> Model </mat-header-cell>
+      <mat-cell *matCellDef="let car" class="model-cell">{{car?.model}}</mat-cell>
     </ng-container>
   
     <ng-container matColumnDef="hourlyPrice">
@@ -11,17 +11,22 @@
     </ng-container>
   
     <ng-container matColumnDef="rating">
-      <mat-header-cell *matHeaderCellDef> Rate </mat-header-cell>
-      <mat-cell *matCellDef="let car">{{car?.rating}}</mat-cell>
+      <mat-header-cell *matHeaderCellDef class="rating-header-cell"> Rate </mat-header-cell>
+      <mat-cell *matCellDef="let car" class="rating-cell">{{car?.rating}} <img class="star" src="/assets/star.png"></mat-cell>
     </ng-container>
   
     <ng-container matColumnDef="condition">
-      <mat-header-cell *matHeaderCellDef> Condition </mat-header-cell>
-      <mat-cell *matCellDef="let car">{{car?.condition}}</mat-cell>
+      <mat-header-cell *matHeaderCellDef class="condition-header-cell"> Condition </mat-header-cell>
+      <mat-cell *matCellDef="let car" class="condition-cell">{{car?.condition}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="arrow">
+      <mat-header-cell *matHeaderCellDef class="arrow-header-cell"></mat-header-cell>
+      <mat-cell *matCellDef="let car" class="arrow-cell">></mat-cell>
     </ng-container>
   
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-header-row *matHeaderRowDef="displayedColumns" class="header-row"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="row"></mat-row>
   </mat-table>
 </div>
 <ng-template #loading>

@@ -9,9 +9,8 @@ import { Station } from '../station/station.model';
 })
 export class StationService {
   private readonly OPENDATA_API_URL =
-    'https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/stationnement-sur-voie-publique-emprises/records?limit=20&refine=regpri:"LOCATION"&refine=regpar:"Véhicule partagé"';
+    'https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/stationnement-sur-voie-publique-emprises/records?limit=20&refine=regpri:"LOCATION"&refine=regpar:"Véhicule partagé"&offset=0';
 
-  // I would use Redux Action, Effect & Store pattern to do this in a larger app
   queryingStations = new BehaviorSubject(false);
 
   getStations(): Observable<{

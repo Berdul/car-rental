@@ -1,3 +1,45 @@
-.mat-header-cell, mat-cell {
+@import '../../../styles.scss';
+
+mat-header-cell, mat-cell {
   padding: 0 !important;
+}
+
+.mat-header-row {
+  min-height: 30px;
+}
+
+mat-progress-bar {
+  margin: 30px 0;
+}
+
+.row {
+
+  &:hover {
+    background-color:$greyish-blue;
+    cursor: pointer;
+  }
+
+  .star{
+    height: 1em;
+    width: 1em;
+  }
+}
+
+.model-header-cell, .model-cell {
+  flex: 2;
+}
+
+.rating-header-cell, .rating-cell {
+  justify-content: center;
+}
+
+.condition-header-cell, .condition-cell {
+  justify-content: flex-end;
+}
+
+.arrow-header-cell, .arrow-cell {
+  flex: 0.5;
+  justify-content: flex-end;
+  padding-right: 5px !important;
+  color: rgb(0, 0, 0, .54)
 }

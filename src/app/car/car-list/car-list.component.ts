@@ -14,7 +14,7 @@ export class CarListComponent implements OnInit {
   @Input() station: Station;
 
   carsSubscription: Subscription;
-  displayedColumns = ['model', 'hourlyPrice', 'rating', 'condition'];
+  displayedColumns = ['model', 'hourlyPrice', 'rating', 'condition', 'arrow'];
   dataSource: MatTableDataSource<Car>;
   isQuerying = this.carService.queryingCars;
   hasError = false;
