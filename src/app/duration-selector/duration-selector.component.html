@@ -15,6 +15,6 @@
 
   <p class="resume">Only <span class="price">{{getEstimatedRentPrice() | currency: '€'}}</span> for <span class="duration">{{getRentDuration()}} Hour</span></p>
 
-  <button (click)="submit()" [disabled]="loading">Rent</button>
+  <button id="submit-btn" (click)="submit()" [disabled]="loading">Rent</button>
   <app-loader *ngIf="loading"></app-loader>
 </form>

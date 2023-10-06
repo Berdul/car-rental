@@ -8,7 +8,7 @@
     <h3 class="station">At <app-station-address class="adress" [station]="confirmation.station"></app-station-address></h3>
   </div>
   <mat-divider></mat-divider>
-  <h3>Total: {{confirmation.price | currency: '€'}}</h3>
+  <h3 id="total">Total: {{confirmation.price | currency: '€'}}</h3>
 
-  <button (click)="navigateHome()">Back to Home</button>
+  <button id="back-home-btn"(click)="navigateHome()">Back to Home</button>
 </div>

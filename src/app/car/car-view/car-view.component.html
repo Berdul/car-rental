@@ -1,11 +1,11 @@
 <div class="container">
   <div class="wrapper">
     <div class="back-link">
-      <a [routerLink]="getHomeRoute()"><  Back to stations</a>
+      <a id="back-home-link" [routerLink]="getHomeRoute()"><  Back to stations</a>
     </div>
     <div *ngIf="!carHasError; else errorRetry">
       <div class="car" *ngIf="!(isCarQuerying | async); else loading">
-        <img src="{{ '/assets/cars/' + car.imageUrl }}" class="car-img">
+        <img id="car-img" src="{{ '/assets/cars/' + car.imageUrl }}" class="car-img">
       
         <div class="info-form-wrapper">
           <div class="info box">
@@ -14,7 +14,7 @@
             <h4 class="price">{{car?.hourlyPrice | currency: '€'}}/h</h4>
             <div class="station">
               <p class="label">Station: </p>
-              <app-station-address *ngIf="!!station" [station]="station"></app-station-address>
+              <app-station-address id="station-adress" *ngIf="!!station" [station]="station"></app-station-address>
             </div>
           </div>
     
