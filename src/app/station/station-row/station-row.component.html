@@ -1,7 +1,7 @@
 <mat-expansion-panel (opened)="panelOpen = true" (closed)="panelOpen = false">
   <mat-expansion-panel-header class="accordion-header">
     <mat-panel-title class="accordion-header-title">
-      {{station.numvoie}} {{station.typevoie | lowercase}} {{station.nomvoie | lowercase}}, {{station.arrond | ordinal}}
+      <app-station-address [station]="station"></app-station-address>
     </mat-panel-title>
     <mat-panel-description>
       {{station.placal}} available

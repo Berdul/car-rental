@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+  <div class="fields">
+    <div class="field-wrapper">
+      <mat-form-field>
+        <input #startDateInput formControlName="startDate" matInput type="datetime-local" placeholder="Start date" [max]="getEndDateString()" (change)="onStartDateChange($event)">
+      </mat-form-field>
+    </div>
+    
+    <div class="field-wrapper">
+      <mat-form-field>
+        <input #endDateInput formControlName="endDate" matInput type="datetime-local" placeholder="End date" [min]="getStartDateString()" (change)="onEndDateChange($event)">
+      </mat-form-field>
+    </div>
+  </div>  
+
+  <p class="resume">Only <span class="price">{{getEstimatedRentPrice() | currency: '€'}}</span> for <span class="duration">{{getRentDuration()}} Hour</span></p>
+
+  <button (click)="submit()" [disabled]="loading">Rent</button>
+  <app-loader *ngIf="loading"></app-loader>
+</form>

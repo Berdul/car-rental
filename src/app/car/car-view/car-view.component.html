@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="back-link">
+      <a [routerLink]="getHomeRoute()"><  Back to stations</a>
+    </div>
+    <div *ngIf="!carHasError; else errorRetry">
+      <div class="car" *ngIf="!(isCarQuerying | async); else loading">
+        <img src="{{ '/assets/cars/' + car.imageUrl }}" class="car-img">
+      
+        <div class="info-form-wrapper">
+          <div class="info box">
+            <h2>{{car.model}}</h2>
+            <h4 class="rating">{{car.rating}} <img src="/assets/star.png" class="star"> - {{car.condition}} condition</h4>
+            <h4 class="price">{{car?.hourlyPrice | currency: '€'}}/h</h4>
+            <div class="station">
+              <p class="label">Station: </p>
+              <app-station-address *ngIf="!!station" [station]="station"></app-station-address>
+            </div>
+          </div>
+    
+          <div class="rent-form box">
+            <h2>Rent it</h2>
+            <app-duration-selector [hourlyPrice]="car.hourlyPrice" [loading]="isRentingQuerying | async" (submitEmitter)="submit($event)"></app-duration-selector>
+            <p class="error" *ngIf="rentingHasError">An error occured</p>
+          </div>
+        </div>
+      </div>
+      <ng-template #loading>
+        <app-loader></app-loader>
+      </ng-template>
+    </div>
+    <ng-template #errorRetry>
+      <app-error-retry (retry)="fetchCar()"></app-error-retry>
+    </ng-template>
+  </div>
+</div>

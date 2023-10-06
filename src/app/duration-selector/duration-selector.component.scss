@@ -1,0 +1,53 @@
+@import "../../styles.scss";
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  .fields {
+    display: flex;
+    flex-direction: row;
+
+    @media (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+    }
+
+    .field-wrapper {
+      &:first-of-type {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .resume {
+    font-weight: 600;
+
+    .price,
+    .duration {
+      color: $main-color-dark;
+    }
+  }
+
+  mat-form-field,
+  button {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  button {
+    color: white;
+    border: 2px solid $main-color;
+    background-color: $main-color;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: "HelveticaNeueBold";
+    text-transform: uppercase;
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $main-color-dark;
+      border-color: $main-color-dark;
+    }
+  }
+}

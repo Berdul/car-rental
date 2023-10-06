@@ -8,6 +8,28 @@ $desktop-max-width: 1200px;
 $mobile-min-width: 375px;
 $mobile-max-width: 800px;
 
-$main-color: rgb(63, 196, 253);
+$form-max-width: 600px;
+
+$main-color: rgb(16, 169, 235);
+$main-color-dark: rgb(41, 138, 180);
 $main-color-light: rgb($main-color, 0.1);
 $greyish-blue: rgb(250, 251, 252);
+$footer-color: rgb(65, 71, 74);
+
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('assets/fonts/helveticaneue/HelveticaNeue Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueBold';
+  src: url('assets/fonts/helveticaneue/Helvetica Neu Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'HelveticaNeue';
+}

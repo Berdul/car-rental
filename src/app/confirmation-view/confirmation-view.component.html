@@ -1,0 +1,14 @@
+<div class="content" *ngIf="confirmation">
+  <h1 class="title">Confirmation Success</h1>
+  <mat-divider></mat-divider>
+  <div class="details">
+    <h2 class="car">{{confirmation.car.model}}</h2>
+    <h3 class="date-wrapper">From {{confirmation.startDate | date: 'medium'}}</h3>
+    <h3 class="date-wrapper">to {{confirmation.endDate | date: 'medium'}}</h3>
+    <h3 class="station">At <app-station-address class="adress" [station]="confirmation.station"></app-station-address></h3>
+  </div>
+  <mat-divider></mat-divider>
+  <h3>Total: {{confirmation.price | currency: '€'}}</h3>
+
+  <button (click)="navigateHome()">Back to Home</button>
+</div>

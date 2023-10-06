@@ -8,20 +8,11 @@ mat-header-cell, mat-cell {
   min-height: 30px;
 }
 
-mat-progress-bar {
-  margin: 30px 0;
-}
-
 .row {
 
   &:hover {
     background-color:$greyish-blue;
     cursor: pointer;
-  }
-
-  .star{
-    height: 1em;
-    width: 1em;
   }
 }
 
@@ -31,6 +22,11 @@ mat-progress-bar {
 
 .rating-header-cell, .rating-cell {
   justify-content: center;
+
+  .star{
+    height: 1em;
+    width: 1em;
+  }
 }
 
 .condition-header-cell, .condition-cell {

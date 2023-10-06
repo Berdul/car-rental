@@ -1,0 +1,44 @@
+@import '../../styles.scss';
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    .car {
+      color: $main-color;
+      font-family: 'HelveticaNeueBold';
+    }
+    .title {
+      justify-self: center;
+    }
+  
+    .date-wrapper {
+      margin: 5px 0;
+      font-weight: 600;
+    }
+  
+    .station {
+      display: flex;
+      flex-direction: row;
+  
+      .adress {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  button {
+    color: white;
+    border: 2px solid $main-color;
+    background-color: $main-color;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    width: fit-content;
+  }
+  
+}

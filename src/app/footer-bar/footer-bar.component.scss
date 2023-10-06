@@ -1,0 +1,23 @@
+@import '../../styles.scss';
+
+.bar {
+  width: 100%;
+  background-color: $footer-color;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px black;
+  color: rgb(220, 220, 220);
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 40px;
+
+    max-width: $desktop-max-width;
+
+    @media (max-width: $breakpoint-mobile) {
+      max-width: $mobile-max-width;
+    }
+  }
+}

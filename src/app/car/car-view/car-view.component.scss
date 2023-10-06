@@ -1,0 +1,103 @@
+@import '../../../styles.scss';
+
+.box {
+  border-radius: 10px;
+  background-color: rgb(242, 245, 247);
+  padding: 20px;
+  margin-bottom: 10px;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 10px;
+  }
+}
+
+.container {
+  display: flex;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 100%;
+
+    .back-link {
+      color: $main-color-dark;
+      text-decoration: none;
+      margin: 10px 0 10px 20px;
+    
+      a {
+        color: inherit;
+        text-decoration: inherit;
+        font-weight: 600;
+        
+      }
+    }
+    
+    .car {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      .car-img {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .info-form-wrapper {
+        margin: 20px 0;
+        width: 100%;
+
+        .info {
+          h2 {
+            font-family: 'HelveticaNeueBold';
+          } 
+
+          .rating {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            margin-bottom: 20px;
+
+            .star {
+              height: 1em;
+              width: auto;
+            }
+          }
+
+          .price {
+            color: $main-color-dark;
+          }
+
+          .station {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+
+            .label {
+              margin-right: 5px;
+            }
+          }
+        }
+
+        .rent-form {
+          display: flex;
+          flex-direction: column;
+
+          h2 {
+            margin-bottom: 10px;
+          }
+
+          .error {
+            color: red;
+          }
+        }
+      } 
+    }
+  } 
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}

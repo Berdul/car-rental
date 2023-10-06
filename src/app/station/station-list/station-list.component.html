@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>Stations</h3>
+  <h3 class="title">Stations available</h3>
   <div *ngIf="!(isQuerying | async); else loading">
     <mat-accordion *ngIf="!hasError; else errorRetry">
       <app-station-row *ngFor="let station of stations" [station]="station"></app-station-row>
@@ -9,7 +9,6 @@
     </ng-template>
   </div>
   <ng-template #loading>
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <app-loader></app-loader>
   </ng-template>
-
 </div>

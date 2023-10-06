@@ -10,3 +10,7 @@ export const generateCarArray = (lenght: number): Car[] => {
   }
   return array;
 };
+
+export const getCar = (id: string): Car => {
+  return cars.find((car) => car.id === id);
+}

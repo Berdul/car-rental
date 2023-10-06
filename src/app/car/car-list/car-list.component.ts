@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription, catchError, first, of } from 'rxjs';
+import { RouteFragment } from 'src/app/route-fragments.enum';
 import { Station } from '../../station/station.model';
 import { Car } from '../car.model';
 import { CarService } from '../car.service';
@@ -34,5 +35,9 @@ export class CarListComponent implements OnInit {
       .subscribe((cars) => {
         this.dataSource = new MatTableDataSource(cars);
       });
+  }
+
+  getCarViewRoute(car: Car): string {
+    return `/${RouteFragment.STATION}/${this.station.id_old}/${RouteFragment.CAR}/${car.id}`;
   }
 }
