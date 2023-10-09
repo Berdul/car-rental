@@ -1,5 +1,6 @@
 <div class="container">
   <h3 class="title">Stations available</h3>
+  <p class="description">Select a station to see all cars available at this station right now</p>
   <div *ngIf="!(isQuerying | async); else loading">
     <mat-accordion *ngIf="!hasError; else errorRetry">
       <app-station-row *ngFor="let station of stations" [station]="station"></app-station-row>

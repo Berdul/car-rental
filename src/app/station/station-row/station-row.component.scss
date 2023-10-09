@@ -1,4 +1,4 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
 .accordion-header {
   padding: 0 20px;
@@ -11,7 +11,7 @@
     flex-direction: column;
   }
 
-  .accordion-header-title  {
+  .accordion-header-title {
     flex-grow: 4;
   }
 }
@@ -19,4 +19,35 @@
 .mat-expansion-panel-header.mat-expanded,
 .mat-expansion-panel-header.mat-expanded:hover {
   background-color: $main-color-light !important;
+}
+
+.mat-expansion-panel-header {
+  @media (max-width: $breakpoint-mobile) {
+    height: 70px;
+  }
+}
+
+mat-panel-title {
+  @media (max-width: $breakpoint-mobile) {
+    margin-bottom: 10px;
+  }
+}
+
+:host ::ng-deep .mat-content {
+  @media (max-width: $breakpoint-mobile) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+:host {
+  .mat-expansion-panel:last-of-type {
+    border-bottom-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .mat-expansion-panel:first-of-type {
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+  }
 }
